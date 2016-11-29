@@ -78,7 +78,7 @@ namespace LuckyDraw
             btnStart.Enabled = true;
 
             // FindWinner(number6);
-            SetText2();
+          //  SetText2();
         }
         void FindWinner(string number)
         {
