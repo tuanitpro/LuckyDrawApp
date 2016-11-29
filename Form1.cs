@@ -75,17 +75,16 @@ namespace LuckyDraw
             btnStop.Enabled = false;
             btnStart.Enabled = true;
 
-             FindWinner(number6);
-         
+            FindWinner(numberFinish);
         }
         void FindWinner(string number)
         {
-            var player = players.Find(x => x.Number.Contains(numberFinish));
+            var player = players.Find(x => x.Number.Contains(number));
             if (player != null)
             {
                 if (player.Win == 1)
                 {
-                    lblWinner.Text = "Người chơi " + numberFinish + " đã trúng rồi :)";
+                    lblWinner.Text = "Người chơi " + number + " đã trúng rồi :)";
                     lblWinnerName.Text = player.Name;
                 }
                 else
