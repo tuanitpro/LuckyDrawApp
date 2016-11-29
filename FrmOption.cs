@@ -24,13 +24,20 @@ namespace LuckyDraw
         }
         private void FrmSetup_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < 31; i++)
+            {
+                cbbSecond.Items.Add(i.ToString());
+            }
+
             cbbTypeOfNumber.SelectedIndex = _parentForm.TypeOfNumber;
+            cbbSecond.Text = _parentForm.AutoStopSecond.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             _parentForm.TypeOfNumber = cbbTypeOfNumber.SelectedIndex;
             _parentForm.ExcelFile = txtFilePath.Text;
+            _parentForm.AutoStopSecond = Convert.ToInt32(cbbSecond.Text);
             this.Close();
         }
 

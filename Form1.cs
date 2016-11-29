@@ -14,7 +14,7 @@ namespace LuckyDraw
         {
             InitializeComponent();
         }
-
+        public int AutoStopSecond { get; set; } = 0;
         public int TypeOfNumber { get; set; } = 5;
         public string ExcelFile { get; set; }
 
@@ -52,6 +52,13 @@ namespace LuckyDraw
 
             number1 = number2 = number3 = number4 = number5 = number6 = "0";
             SetText();
+
+            if (AutoStopSecond > 0)
+            {
+                timer2.Interval = AutoStopSecond * 1000;
+                timer2.Enabled = true;
+                timer2.Start();
+            }
         }
 
 
@@ -69,7 +76,11 @@ namespace LuckyDraw
             btnStop.Enabled = false;
             btnStart.Enabled = true;
 
-           var player = players.Find(x => x.Number.Contains(number6) && x.Win == 0);
+           // FindWinner(number6);
+        }
+        void FindWinner(string number)
+        {
+            var player = players.Find(x => x.Number.Contains(number6) && x.Win == 0);
             if (player != null)
             {
                 lblWinnerName.Text = player.Name;
@@ -79,8 +90,6 @@ namespace LuckyDraw
             {
                 lblWinnerName.Text = "Chưa tìm thấy";
             }
-             
-           
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -188,7 +197,6 @@ namespace LuckyDraw
         {
             number1 = number2 = number3 = number4 = number5 = number6 = "0";
             SetText();
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
