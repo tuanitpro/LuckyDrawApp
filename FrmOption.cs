@@ -31,7 +31,7 @@ namespace LuckyDraw
 
             cbbTypeOfNumber.SelectedIndex = _parentForm.TypeOfNumber;
             cbbSecond.Text = _parentForm.AutoStopSecond.ToString();
-            txtFilePath.Text = @"Resources\data.xlsx";
+            txtFilePath.Text = _parentForm.ExcelFile;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

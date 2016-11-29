@@ -76,7 +76,7 @@ namespace LuckyDraw
             btnStart.Enabled = true;
 
              FindWinner(number6);
-          //  SetText2();
+         
         }
         void FindWinner(string number)
         {
@@ -85,14 +85,14 @@ namespace LuckyDraw
             {
                 if (player.Win == 1)
                 {
-                    lblWinnerName.Text = "Người chơi đã trúng rồi.";
+                    lblWinner.Text = "Người chơi " + numberFinish + " đã trúng rồi :)";
+                    lblWinnerName.Text = player.Name;
                 }
                 else
                 {
                     lblWinnerName.Text = player.Name;
                     player.Win = 1;
                 }
-               
             }
             else
             {
@@ -206,18 +206,17 @@ namespace LuckyDraw
         private void setupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = new FrmOption(this);
-            f.ShowDialog();
-            f.FormClosing += F_FormClosing;
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                number1 = number2 = number3 = number4 = number5 = number6 = "0";
+                SetText();
+
+                players = playerService.ListPlayer(ExcelFile);
+                MessageBox.Show("Cài đặt thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void F_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            number1 = number2 = number3 = number4 = number5 = number6 = "0";
-            SetText();
-            
-            players = playerService.ListPlayer(ExcelFile);
-        }
-
+        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show( ExcelFile+"__"+ players.Count.ToString());
@@ -226,14 +225,20 @@ namespace LuckyDraw
 
         private void danhsachTrungthuongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             var playersWin = players.FindAll(x => x.Win > 0);
-            string s = "";
-            foreach (var item in playersWin)
+            if (playersWin.Count == 0)
             {
-                s += item.Name + "\n";
+                MessageBox.Show("Chưa có người trúng giải", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show(s, "Danh sách Trúng thưởng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                string s = "";
+                foreach (var item in playersWin)
+                {
+                    s += item.Name + "\n";
+                }
+                MessageBox.Show(s, "Danh sách Trúng thưởng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -33,13 +33,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbbSecond = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cbbTypeOfNumber = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbbSecond = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +94,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "File:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(230, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "giây";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -101,6 +111,31 @@
             this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "số";
+            // 
+            // cbbSecond
+            // 
+            this.cbbSecond.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSecond.FormattingEnabled = true;
+            this.cbbSecond.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cbbSecond.Location = new System.Drawing.Point(102, 27);
+            this.cbbSecond.Name = "cbbSecond";
+            this.cbbSecond.Size = new System.Drawing.Size(121, 21);
+            this.cbbSecond.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tự động dừng:";
             // 
             // cbbTypeOfNumber
             // 
@@ -131,40 +166,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel files (*.xlsx;*.xls)|*.xlsx;*.xls";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tự động dừng:";
-            // 
-            // cbbSecond
-            // 
-            this.cbbSecond.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSecond.FormattingEnabled = true;
-            this.cbbSecond.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.cbbSecond.Location = new System.Drawing.Point(102, 27);
-            this.cbbSecond.Name = "cbbSecond";
-            this.cbbSecond.Size = new System.Drawing.Size(121, 21);
-            this.cbbSecond.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "giây";
             // 
             // groupBox2
             // 
