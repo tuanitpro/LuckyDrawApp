@@ -1,6 +1,7 @@
 ﻿using LuckyDraw.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Media;
 
@@ -76,7 +77,8 @@ namespace LuckyDraw
             btnStop.Enabled = false;
             btnStart.Enabled = true;
 
-           // FindWinner(number6);
+            // FindWinner(number6);
+            SetText2();
         }
         void FindWinner(string number)
         {
@@ -158,9 +160,6 @@ namespace LuckyDraw
 
                     break;
             }
-
-
-
             SetText();
         }
         void SetText()
@@ -173,8 +172,20 @@ namespace LuckyDraw
             lblSo6.Text = number6;
 
             numberFinish = $"{number1}{number2}{number3}{number4}{number5}{number6}";
+            // System.Threading.Thread.Sleep(500);             
         }
+        void SetText2()
+        {
+            lblSo1.Text = number1;
+            
+            lblSo3.Text = number3;
+           
+            lblSo5.Text = number5;
+            lblSo6.Text = number6;
 
+            numberFinish = $"{number1}{number2}{number3}{number4}{number5}{number6}";
+            // System.Threading.Thread.Sleep(500);             
+        }
         private void timer2_Tick(object sender, EventArgs e)
         {
             btnStop.PerformClick();
