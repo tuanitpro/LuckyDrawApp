@@ -36,7 +36,7 @@ namespace LuckyDraw
         private void Form1_Load(object sender, EventArgs e)
         {
             players = playerService.ListPlayer(ExcelFile);
-
+            lblWinner.Text = "Bắt đầu tìm người thắng cuộc";
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -70,7 +70,7 @@ namespace LuckyDraw
             playerStop.Play();
             timer1.Enabled = false;
             timer2.Enabled = false;
-            lblWinner.Text = "Chúc mừng người thắng cuộc: " + numberFinish;
+           
 
             btnStop.Enabled = false;
             btnStart.Enabled = true;
@@ -89,13 +89,14 @@ namespace LuckyDraw
                 }
                 else
                 {
+                    lblWinner.Text = "Chúc mừng người thắng cuộc: " + numberFinish;
                     lblWinnerName.Text = player.Name;
                     player.Win = 1;
                 }
             }
             else
             {
-                lblWinnerName.Text = "Chưa tìm thấy";
+                lblWinner.Text = "Chưa tìm thấy người thắng cuộc.";                 
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -218,8 +219,8 @@ namespace LuckyDraw
         
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( ExcelFile+"__"+ players.Count.ToString());
-          //  Application.Exit();
+             
+           Application.Exit();
         }
 
         private void danhsachTrungthuongToolStripMenuItem_Click(object sender, EventArgs e)
