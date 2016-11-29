@@ -1,8 +1,9 @@
-﻿using System;
+﻿using LuckyDraw.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
- 
+
 using System.Windows.Forms;
 
 namespace LuckyDraw
@@ -40,7 +41,7 @@ namespace LuckyDraw
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
-            string sPathSound = "play.wav";
+            string sPathSound = @"Resources\play.wav";
             playerStart = new SoundPlayer(sPathSound);
             playerStart.PlayLooping();
             timer1.Start();
