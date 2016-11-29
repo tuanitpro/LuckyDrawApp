@@ -92,6 +92,7 @@ namespace LuckyDraw
                     lblWinner.Text = "Chúc mừng người thắng cuộc: " + numberFinish;
                     lblWinnerName.Text = player.Name;
                     player.Win = 1;
+                    player.Name = number + ": " + player.Name;
                 }
             }
             else
