@@ -1,6 +1,6 @@
 ﻿namespace LuckyDraw
 {
-    partial class FrmSetup
+    partial class FrmOption
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetup));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOption));
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbbTypeOfNumber = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbTypeOfNumber = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,14 +69,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chung";
             // 
-            // label1
+            // txtFilePath
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Loại hình";
+            this.txtFilePath.Location = new System.Drawing.Point(62, 95);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(333, 20);
+            this.txtFilePath.TabIndex = 4;
+            this.txtFilePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtFilePath_MouseDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "File";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(190, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "số";
             // 
             // cbbTypeOfNumber
             // 
@@ -89,43 +106,26 @@
             "4",
             "5",
             "6"});
-            this.cbbTypeOfNumber.Location = new System.Drawing.Point(62, 26);
+            this.cbbTypeOfNumber.Location = new System.Drawing.Point(62, 60);
             this.cbbTypeOfNumber.Name = "cbbTypeOfNumber";
             this.cbbTypeOfNumber.Size = new System.Drawing.Size(121, 21);
             this.cbbTypeOfNumber.TabIndex = 1;
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "số";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "File";
-            // 
-            // txtFilePath
-            // 
-            this.txtFilePath.Location = new System.Drawing.Point(62, 55);
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(333, 20);
-            this.txtFilePath.TabIndex = 4;
-            this.txtFilePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtFilePath_MouseDown);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Loại hình";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel files (*.xlsx;*.xls)|*.xlsx;*.xls";
             // 
-            // FrmSetup
+            // FrmOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,7 +136,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmSetup";
+            this.Name = "FrmOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CÀI ĐẶT";
             this.Load += new System.EventHandler(this.FrmSetup_Load);

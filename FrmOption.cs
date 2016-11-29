@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace LuckyDraw
 {
-    public partial class FrmSetup : Form
+    public partial class FrmOption : Form
     {
-        public FrmSetup()
+        public FrmOption()
         {
             InitializeComponent();
         }
         Form1 _parentForm;
-        public FrmSetup(Form1 parentForm)
+        public FrmOption(Form1 parentForm)
         {
             InitializeComponent();
             _parentForm = parentForm;

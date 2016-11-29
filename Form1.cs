@@ -58,7 +58,9 @@ namespace LuckyDraw
         private void btnStop_Click(object sender, EventArgs e)
         {
             if (playerStart != null) playerStart.Stop();
-            playerStop = new SoundPlayer("stop.wav");
+
+            string sPathSound = @"Resources\stop.wav";
+            playerStop = new SoundPlayer(sPathSound);
             playerStop.Play();
             timer1.Enabled = false;
             timer2.Enabled = false;
@@ -177,7 +179,7 @@ namespace LuckyDraw
 
         private void setupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new FrmSetup(this);
+            var f = new FrmOption(this);
             f.ShowDialog();
             f.FormClosing += F_FormClosing;
         }
