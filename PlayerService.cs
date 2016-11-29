@@ -1,5 +1,7 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,22 +11,47 @@ namespace LuckyDraw
     public interface IPlayerService
     {
         List<Player> ListPlayer();
-        List<Player> ListPlayer(int source);
+        List<Player> ListPlayer(string source);
     }
     public class PlayerService : IPlayerService
     {
         public List<Player> ListPlayer()
         {
-            return ListPlayer(2);
+            return ListPlayer("");
         }
-        public List<Player> ListPlayer(int source)
+        public List<Player> ListPlayer(string source)
         {
-            if (source == 1) return PlayerFromExcelFile();
+            if (!string.IsNullOrEmpty(source)) return PlayerFromExcelFile(source);
             return BuildData();
         }
-        private List<Player> PlayerFromExcelFile()
+        private List<Player> PlayerFromExcelFile(string source)
         {
-            return new List<Player>();
+            var list = new List<Player>();
+            if (!File.Exists(source)) return list;
+
+            using (var package = new ExcelPackage(new FileInfo(source)))
+            {
+                ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
+
+                for (int i = workSheet.Dimension.Start.Row; i <= workSheet.Dimension.End.Row; i++)
+                {
+                    object number = workSheet.Cells[i, 1].Value;
+                    object code = workSheet.Cells[i, 2].Value;
+                    object name = workSheet.Cells[i, 3].Value;
+                    object note = workSheet.Cells[i, 4].Value;
+                    var player = new Player
+                    {
+                        Number = number == null ? "" : number.ToString(),
+                        Code = code == number ? "" : code.ToString(),
+                        Name = name == number ? "" : name.ToString(),
+                        Note = note == number ? "" : note.ToString(),
+                        Win = 0
+                    };
+                    list.Add(player);
+                }
+
+            }
+            return list;
         }
         private List<Player> BuildData()
         {

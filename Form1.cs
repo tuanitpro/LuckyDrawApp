@@ -1,8 +1,5 @@
-﻿using LuckyDraw.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using System.Media;
 
 using System.Windows.Forms;
@@ -16,8 +13,8 @@ namespace LuckyDraw
             InitializeComponent();
         }
         public int AutoStopSecond { get; set; } = 0;
-        public int TypeOfNumber { get; set; } = 5;
-        public string ExcelFile { get; set; }
+        public int TypeOfNumber { get; set; } = 1; // 2 so
+        public string ExcelFile { get; set; } = @"Resources\data.xlsx";
 
         int SpinReel_1;
         int SpinReel_2;
@@ -35,10 +32,11 @@ namespace LuckyDraw
         SoundPlayer playerStart;
         SoundPlayer playerStop;
         List<Player> players;
+        IPlayerService playerService = new PlayerService();
         private void Form1_Load(object sender, EventArgs e)
         {
-            IPlayerService playerService = new PlayerService();
-            players = playerService.ListPlayer();
+            players = playerService.ListPlayer(ExcelFile);
+
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -77,16 +75,24 @@ namespace LuckyDraw
             btnStop.Enabled = false;
             btnStart.Enabled = true;
 
-            // FindWinner(number6);
+             FindWinner(number6);
           //  SetText2();
         }
         void FindWinner(string number)
         {
-            var player = players.Find(x => x.Number.Contains(number6) && x.Win == 0);
+            var player = players.Find(x => x.Number.Contains(numberFinish));
             if (player != null)
             {
-                lblWinnerName.Text = player.Name;
-                player.Win = 1;
+                if (player.Win == 1)
+                {
+                    lblWinnerName.Text = "Người chơi đã trúng rồi.";
+                }
+                else
+                {
+                    lblWinnerName.Text = player.Name;
+                    player.Win = 1;
+                }
+               
             }
             else
             {
@@ -208,11 +214,13 @@ namespace LuckyDraw
         {
             number1 = number2 = number3 = number4 = number5 = number6 = "0";
             SetText();
+            
+            players = playerService.ListPlayer(ExcelFile);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(TypeOfNumber.ToString());
+            MessageBox.Show( ExcelFile+"__"+ players.Count.ToString());
           //  Application.Exit();
         }
 
