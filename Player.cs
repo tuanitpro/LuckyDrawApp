@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LuckyDraw
 {
     /// <summary>
-    /// Player
+    /// Player edit
     /// </summary>
     public class Player
     {
